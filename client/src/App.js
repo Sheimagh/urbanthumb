@@ -7,7 +7,7 @@ import Results from "./components/Results/index";
 function App() {
   return (
     <div className="App">
-      <NavBar></NavBar>
+      <NavBar />
       <Results></Results>
     </div>
   );
