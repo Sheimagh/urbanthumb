@@ -1,27 +1,30 @@
-import React from 'react';
-import { ScrollView, StyleSheet, Text } from 'react-native';
+import React from "react";
+import { View } from "react-native";
+import { Card, Button, Text } from "react-native-elements";
+import { onSignOut } from "./auth";
 
-
-export default class ProfileScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Profile',
-  };
-
-  render() {
-    return (
-      <ScrollView style={styles.container}>
-        {/* Go ahead and delete ExpoLinksView and replace it with your
-           * content, we just wanted to provide you with some helpful links */}
-        <Text>Profile Content Here</Text>
-      </ScrollView>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 15,
-    backgroundColor: '#fff',
-  },
-});
+export default ({ navigation }) => (
+  <View style={{ paddingVertical: 20 }}>
+    <Card title="Sheima Gholami">
+      <View
+        style={{
+          backgroundColor: "#bcbec1",
+          alignItems: "center",
+          justifyContent: "center",
+          width: 80,
+          height: 80,
+          borderRadius: 40,
+          alignSelf: "center",
+          marginBottom: 20
+        }}
+      >
+        <Text style={{ color: "white", fontSize: 28 }}>SG</Text>
+      </View>
+      <Button
+        backgroundColor="#03A9F4"
+        title="SIGN OUT"
+        onPress={() => onSignOut().then(() => navigation.navigate("SignedOut"))}
+      />
+    </Card>
+  </View>
+);

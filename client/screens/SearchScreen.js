@@ -1,51 +1,47 @@
-import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
-import {
-  Text
-} from 'react-native';
+import React, { Component } from "react";
+import { ScrollView, Text, Linking, View } from "react-native";
+import ImagePicker from 'react-native-image-picker';
 
+const options = {
+  title: 'Select Avatar',
+  customButtons: [{ name: 'fb', title: 'Choose Photo from Facebook' }],
+  storageOptions: {
+    skipBackup: true,
+    path: 'images',
+  },
+};
 
-export default class SearchScreen extends Component {
-  render() {
-    return (
-      <View>
-        <Text>Search Screen Placeholder</Text>
-      </View>
-    );
+/**
+ * The first arg is the options object for customization (it can also be null or omitted for default options),
+ * The second arg is the callback which sends object
+ */
+ImagePicker.showImagePicker(options, (response) => {
+  console.log('Response = ', response);
+
+  if (response.didCancel) {
+    console.log('User cancelled image picker');
+  } else if (response.error) {
+    console.log('ImagePicker Error: ', response.error);
+  } else if (response.customButton) {
+    console.log('User tapped custom button: ', response.customButton);
+  } else {
+    const source = { uri: response.uri };
+
+    // You can also display the image using data:
+ 
+
+    this.setState({
+      avatarSource: source,
+    });
   }
-}
+});
 
-// import t from '../node_modules/tcomb-form-native';
+// Launch Camera:
+ImagePicker.launchCamera(options, (response) => {
+  // Same code as in above section!
+});
 
-// const Form = t.form.Form;
-
-// const User = t.struct({
-//   email: t.String,
-//   username: t.String,
-//   password: t.Stri,
-//   terms: t.Boolean
-// });
-
-// export default class SearchScreen extends Component {
-//   render() {
-//     return (
-//       <View style={styles.container}>
-//         <Form type={User} /> {/* Notice the addition of the Form component */}
-//       </View>
-//     );
-//   }
-// }
-
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-    marginTop: 50,
-    padding: 20,
-    backgroundColor: '#ffffff',
-  }
-})
-
-  
-
-
-
+// Open Image Library:
+ImagePicker.launchImageLibrary(options, (response) => {
+  // Same code as in above section!
+});
