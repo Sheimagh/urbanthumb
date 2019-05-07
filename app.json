@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Urban Thumb Tests",
-    "slug": "Native-app",
+    "name": "UrbanThumb",
+    "slug": "UT",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": [
