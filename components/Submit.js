@@ -13,9 +13,6 @@ export default class Submit extends React.Component {
                 color="white"
                 />
             }
-            
-            // onPress={TextSearch.search}
-            // value={TextSearch.search}
             />
         );
     }
