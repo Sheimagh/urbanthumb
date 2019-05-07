@@ -2,6 +2,7 @@ import React from 'react';
 import { ScrollView, StyleSheet, Text } from 'react-native';
 import TextSearch from '../components/TextSearch';
 import Submit from '../components/Submit';
+import ImagePick from '../components/ImagePicker';
 
 export default class SearchScreen extends React.Component {
   static navigationOptions = {
@@ -17,6 +18,11 @@ export default class SearchScreen extends React.Component {
            <TextSearch />
            <Submit 
             />
+            <Text>
+            {"\n"}
+            {"\n"}
+            </Text>
+            <ImagePick />
         
       </ScrollView>
     );

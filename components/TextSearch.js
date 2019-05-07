@@ -19,7 +19,7 @@ export default class TextSearch extends React.Component {
           placeholder="Type your plant here!"
           onChangeText={this.updateSearch}
           value={search}
-          showLoading
+          showLoading={false}
         />
     );
   }
