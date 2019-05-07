@@ -17,8 +17,9 @@ export default class TextSearch extends React.Component {
     return (
         <SearchBar
           placeholder="Type your plant here!"
-          onChangeText={this.search}
+          onChangeText={this.updateSearch}
           value={search}
+          showLoading
         />
     );
   }
