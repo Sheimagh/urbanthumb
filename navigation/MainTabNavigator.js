@@ -4,9 +4,10 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import ProfileScreen from '../screens/ProfileScreen';
+import LinksScreen from '../screens/LinksScreen';
+import SearchScreen from '../screens/SearchScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import SearchScreen from "../screens/SearchScreen";
+import CameraScreen from '../screens/CameraScreen';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -25,30 +26,17 @@ HomeStack.navigationOptions = {
     />
   ),
 };
-  
-const ProfileStack = createStackNavigator({
-  Profile: ProfileScreen,
+
+const LinksStack = createStackNavigator({
+  Links: LinksScreen,
 });
 
-ProfileStack.navigationOptions = {
-  tabBarLabel: 'Profile',
+LinksStack.navigationOptions = {
+  tabBarLabel: 'Links',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-contact' : 'md-contact'}
-    />
-  ),
-};
-const SearchStack = createStackNavigator({
-  Search: SearchScreen,
-});
-
-SearchStack.navigationOptions = {
-  tabBarLabel: 'Search',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-search' : 'md-search'}
+      name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
     />
   ),
 };
@@ -67,9 +55,38 @@ SettingsStack.navigationOptions = {
   ),
 };
 
+const SearchStack = createStackNavigator({
+  Search: SearchScreen,
+});
+
+SearchStack.navigationOptions = {
+  tabBarLabel: 'Search',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? 'ios-search' : 'md-search'}
+    />
+  ),
+};
+
+const CameraStack = createStackNavigator({
+  Camera: CameraScreen,
+});
+
+CameraStack.navigationOptions = {
+  tabBarLabel: 'Photo ID',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? 'ios-camera' : 'md-camera'}
+    />
+  ),
+};
+
 export default createBottomTabNavigator({
   HomeStack,
-  ProfileStack,
-  SettingsStack,
+  LinksStack,
   SearchStack,
+  SettingsStack,
+  CameraStack,
 });
